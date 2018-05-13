@@ -101,6 +101,8 @@ const hasProperty = (p, property) => {
 
 const _obj = initObj => ({
   entries: () => Object.entries(initObj),
+  keys: () => _arr(_obj(initObj).entries()).map(keyVal => keyVal[0]),
+  values: () => _arr(_obj(initObj).entries()).map(keyVal => keyVal[1]),
   distanceTo: p => {
     hasProperty(initObj, "x");
     hasProperty(initObj, "y");
@@ -119,6 +121,8 @@ const p2 = { x: 1, y: 0 };
 const p3 = { x: 1, y: 1 };
 
 console.log("objToArr", obj, _obj(obj).entries());
+console.log("objToArrKeys", obj, _obj(obj).keys());
+console.log("objToArrValues", obj, _obj(obj).values());
 console.log(p1, p2, p3);
 
 console.log("P1distanceToP2", _obj(p1).distanceTo(p2));
